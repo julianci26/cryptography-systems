@@ -1,8 +1,16 @@
-Cryptography and Cryptosystems
-------------------------------
-Define: Cryptography 
---------------------
-*Cryptography* is the practice of securing information and communications through the use of codes, so that only the intended recipient can access and read the message. It is a fundamental tool in cybersecurity, used to protect sensitive data from unauthorized access or tampering. *Cryptosystem* is a structure or scheme that converts plaintext to ciphertext using algorithms for secure encoding and decoding. It consists of key generation, encryption, and decryption techniques, with the cryptographic key being a crucial component.
+**Cryptography and Cryptosystems**
+=====================================
+
+Cryptography is the practice of securing information and communications through the use of codes, ensuring that only the intended recipient can access and read the message. It is a fundamental tool in cybersecurity, used to protect sensitive data from unauthorized access or tampering.
+
+A cryptosystem is a structure or scheme that converts plaintext to ciphertext using algorithms for secure encoding and decoding. This typically involves:
+
+*   Key generation
+*   Encryption
+*   Decryption techniques
+*   A cryptographic key, which is a crucial component of the cryptosystem.
+
+Would you like me to elaborate on any of these points?
 
 The main features of cryptography in cybersecurity include:
 ---------------------------------------------------------------
