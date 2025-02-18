@@ -10,8 +10,6 @@ A cryptosystem is a structure or scheme that converts plaintext to ciphertext us
 *   Decryption techniques
 *   A cryptographic key, which is a crucial component of the cryptosystem.
 
-Would you like me to elaborate on any of these points?
-
 The main features of cryptography in cybersecurity include:
 ---------------------------------------------------------------
 1. **Confidentiality**: Cryptography ensures that only authorized parties can access and read the information by encoding the data in a way that makes it unreadable to anyone without the proper decryption key.
