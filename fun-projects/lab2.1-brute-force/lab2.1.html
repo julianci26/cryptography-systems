@@ -1,1 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ethical Brute Force Techniques in Linux</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .lab-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+        }
+        
+        .command {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: 'Courier New', monospace;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .warning {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .tip {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .tool-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .tool-card {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Brute Force Lab2.1</h1>
+        <p>Exploring Password Cracking and Security Testing Methodologies</p>
+    </div>
 
+    <div class="lab-section">
+        <h2>Lab Objectives</h2>
+        <p>By the end of this lab, you will:</p>
+        <ul>
+            <li>Understand brute force attack principles</li>
+            <li>Learn tools for password cracking</li>
+            <li>Recognize security vulnerabilities</li>
+            <li>Develop defensive strategies</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        ⚠️ IMPORTANT: This lab is for EDUCATIONAL PURPOSES ONLY. 
+        Always obtain explicit permission before testing on any system you do not own.
+        Unauthorized access is illegal and unethical.
+    </div>
+
+    <div class="lab-section">
+        <h2>Prerequisite Tools</h2>
+        <div class="tool-list">
+            <div class="tool-card">
+                <h3>Hydra</h3>
+                <p>Multi-protocol password cracking tool</p>
+            </div>
+            <div class="tool-card">
+                <h3>John the Ripper</h3>
+                <p>Password cracking and testing utility</p>
+            </div>
+            <div class="tool-card">
+                <h3>Medusa</h3>
+                <p>Parallel network login auditor</p>
+            </div>
+        </div>
+
+        <h3>Installation</h3>
+        <code class="command">
+            sudo apt-get update
+            sudo apt-get install hydra john medusa
+        </code>
+    </div>
+
+    <div class="lab-section">
+        <h2>Step 1: Password Dictionary Preparation</h2>
+        <p>Create and manage password dictionaries for testing</p>
+
+        <code class="command">
+            # Create basic password list
+            echo -e "password\n123456\nqwerty\nadmin\ntest" > basic_passwords.txt
+
+            # Download comprehensive wordlist
+            wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000.txt
+        </code>
+
+        <div class="tip">
+            💡 Tip: Always use ethically sourced and legally obtained password lists
+        </div>
+    </div>
+
+    <div class="lab-section">
+        <h2>Step 2: SSH Brute Force Simulation</h2>
+        <p>Demonstrating remote login attempts using Hydra</p>
+
+        <code class="command">
+            # Generic SSH brute force syntax
+            hydra -L users.txt -P passwords.txt ssh://target_ip
+        </code>
+
+        <div class="warning">
+            ⚠️ WARNING: Only perform on authorized test environments
+        </div>
+    </div>
+
+    <div class="lab-section">
+        <h2>Step 3: Local Password Cracking</h2>
+        <p>Cracking shadow file hashes using John the Ripper</p>
+
+        <code class="command">
+            # Unshadow password file
+            unshadow /etc/passwd /etc/shadow > mypasswd.txt
+
+            # Crack passwords
+            john --wordlist=passwords.txt mypasswd.txt
+        </code>
+    </div>
+
+    <div class="lab-section">
+        <h2>Defensive Strategies</h2>
+        <ul>
+            <li>Use complex, long passwords</li>
+            <li>Implement multi-factor authentication</li>
+            <li>Use password complexity requirements</li>
+            <li>Limit login attempts</li>
+            <li>Use SSH key-based authentication</li>
+        </ul>
+    </div>
+
+    <div class="lab-section">
+        <h2>Ethical Considerations</h2>
+        <p>Brute force techniques should ONLY be used:</p>
+        <ul>
+            <li>On systems you own</li>
+            <li>With explicit permission</li>
+            <li>For security testing purposes</li>
+            <li>To improve system security</li>
+        </ul>
+    </div>
+</body>
+</html>
