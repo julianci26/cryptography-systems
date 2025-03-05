@@ -1,1 +1,149 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Logging Lab: Exploring nmap, tcpdump, and netcat</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .lab-section {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .command {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-family: 'Courier New', monospace;
+            padding: 10px;
+            border-radius: 3px;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .note {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network Logging Lab: Linux Network Tools Exploration</h1>
+    
+    <div class="lab-section">
+        <h2>Lab Objective</h2>
+        <p>In this lab, you'll learn to use three essential Linux network tools: nmap, tcpdump, and netcat. These tools are crucial for network exploration, packet capture, and network communication.</p>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Linux environment (Ubuntu, CentOS, or Kali recommended)</li>
+            <li>Root or sudo access</li>
+            <li>Basic understanding of networking concepts</li>
+        </ul>
+        
+        <div class="note">
+            <strong>Important:</strong> Always ensure you have permission before scanning or probing networks you do not own.
+        </div>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Step 1: Installation</h2>
+        <p>First, install the required tools:</p>
+        <code class="command">
+            sudo apt-get update
+            sudo apt-get install nmap tcpdump netcat
+        </code>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Step 2: Network Scanning with nmap</h2>
+        <p>Nmap (Network Mapper) is a powerful tool for network discovery and security auditing.</p>
+        
+        <h3>Basic Scan</h3>
+        <code class="command">
+            nmap localhost
+        </code>
+        
+        <h3>Detailed Scan</h3>
+        <code class="command">
+            sudo nmap -sV -p- localhost
+        </code>
+        
+        <div class="note">
+            <strong>Tip:</strong> The -sV flag detects service/version info, -p- scans all ports.
+        </div>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Step 3: Packet Capture with tcpdump</h2>
+        <p>Tcpdump allows you to capture and analyze network traffic in real-time.</p>
+        
+        <h3>Capture Basic Traffic</h3>
+        <code class="command">
+            sudo tcpdump -i eth0 -n
+        </code>
+        
+        <h3>Capture Specific Protocol</h3>
+        <code class="command">
+            sudo tcpdump -i eth0 tcp port 80
+        </code>
+        
+        <div class="note">
+            <strong>Note:</strong> Replace eth0 with your network interface name.
+        </div>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Step 4: Network Communication with netcat</h2>
+        <p>Netcat is a networking utility for reading from and writing to network connections.</p>
+        
+        <h3>Setting Up a Listener</h3>
+        <code class="command">
+            nc -l -p 12345
+        </code>
+        
+        <h3>Connecting to a Listener</h3>
+        <code class="command">
+            nc localhost 12345
+        </code>
+        
+        <div class="note">
+            <strong>Example:</strong> This creates a simple chat-like communication between two terminals.
+        </div>
+    </div>
+    
+    <div class="lab-section">
+        <h2>Lab Conclusion</h2>
+        <p>You've now been introduced to three fundamental network tools in Linux. These tools are essential for network administrators, security professionals, and developers for understanding and managing network communications.</p>
+    </div>
+</body>
+</html>
