@@ -27,8 +27,6 @@ The main features of cryptography in cybersecurity include:
 
 **Ethical hackers and cybersecurity professionals will use a variety of techniques to identify vulnerabilities and strengthen security systems. Here are the most important keys methods:**
 -----------------------------------------------------------------------
-Certainly! Ethical hackers and cybersecurity professionals use a variety of techniques to identify vulnerabilities and strengthen security systems. Here are some key methods:
-
 1. **Penetration Testing**: Simulating cyberattacks to uncover weaknesses in systems before malicious hackers can exploit them. Tools like Metasploit and Burp Suite are commonly used for this purpose.
 
 2. **Network Scanning**: Identifying open ports, services, and potential vulnerabilities in a network using tools like Nmap and Wireshark.
