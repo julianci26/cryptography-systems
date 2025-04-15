@@ -2,27 +2,27 @@
 ---
 ## Table of Contents:
 1. Introduction
-     2. Historical Cryptography
-     3. Substitution Ciphers
-     4. Poly-alphabetic Substitution Ciphers
-     5. Transposition Ciphers
-6. Goals of Cryptography
-     7. Confidentiality
-     8. Integrity
-     9. Authentication
-     10. Non-reputation
-11. Cryptographic Concepts
-     12. Cryptographic Keys
-     13. Ciphers
+2.      Historical Cryptography
+3.           Substitution Ciphers
+4.           Poly-alphabetic Substitution Ciphers
+5.           Transposition Ciphers
+6.      Goals of Cryptography
+7.           Confidentiality
+8.           Integrity
+9.           Authentication
+10.           Non-reputation
+11.      Cryptographic Concepts
+12.           Cryptographic Keys
+13.           Ciphers
 14. Research
-     15. Modern Cryptography
-          16. Cryptographic Secrecy
-          17. Symmetric Key Encryption
-          18. Asymmetric Key Encryption
+15.      Modern Cryptography
+16.           Cryptographic Secrecy
+17.           Symmetric Key Encryption
+18.           Asymmetric Key Encryption
 19. Projects
-     20. Networking Analysis
-     21. Malware Traffic Analysis
-     22. Web Application Security Testing
+20.      Networking Analysis
+21.      Malware Traffic Analysis
+22.      Web Application Security Testing
 
 ## Introduction
 ---
