@@ -1,72 +1,106 @@
-**Cryptography and Cryptosystems**
-=====================================
+# Cryptography
+---
+## Table of Contents:
+     1. Introduction
+         1.1. Historical Cryptography
+             a) Substitution Ciphers
+             b) Poly-alphabetic Substitution Ciphers
+             c) Transposition Ciphers
+         1.2. Goals of Cryptography
+             a) Confidentiality
+             b) Integrity
+             c) Authentication
+             d) Non-reputation
+         1.3. Cryptographic Concepts
+             a) Cryptographic Keys
+             b) Ciphers
+     2. Research
+         2.1. Modern Cryptography
+             a) Cryptographic Secrecy
+             b) Symmetric Key Encryption
+             c) Asymmetric Key Encryption
+     3. Projects
+         3.1. Networking Analysis
+         3.2. Malware Traffic Analysis
+         3.3. Web Application Security Testing
 
-Cryptography is the practice of securing information and communications through the use of codes, ensuring that only the intended recipient can access and read the message. It is a fundamental tool in cybersecurity, used to protect sensitive data from unauthorized access or tampering.
+## Introduction
+---
+**Cryptography** is the science of securing information through encryption and decryption. It has existed for thousands of years, evolving from simple substitution methods to highly complex systems that ensure confidentiality and are virtually impossible to break with current technology.
 
-A cryptosystem is a structure or scheme that converts plaintext to ciphertext using algorithms for secure encoding and decoding. This typically involves:
+### Historical Cryptography
+---
+Before the advent of modern computers, cryptographic methods relied on techniques that didn't involve complex mathematics. Instead, they focused on ways to scramble or obscure text to protect its meaning. A cipher is a tool or method used to rearrange or disguise characters, making the original message unreadable. **Ciphering** refers to the act of applying such a method to encode a message. In this section, we’ll explore two main types of these traditional, non-mathematical cryptographic techniques.
 
-*   Key generation
-*   Encryption
-*   Decryption techniques
-*   A cryptographic key, which is a crucial component of the cryptosystem.
+#### Substitution Ciphers
+---
+A **substitution cipher** is a method of encryption that replaces each character or symbol in a message with another. This technique is relatively simple and one of the oldest forms of cryptography. A well-known example is the Caesar cipher, which is believed to have been used by Julius Caesar. This cipher works by shifting each letter in the alphabet by a fixed number of positions. For instance, with a shift of three, A becomes D, B becomes E, and so on. At the end of the alphabet, it wraps around—so Y becomes B and Z becomes C.
 
-The main features of cryptography in cybersecurity include:
----------------------------------------------------------------
-1. **Confidentiality**: Cryptography ensures that only authorized parties can access and read the information by encoding the data in a way that makes it unreadable to anyone without the proper decryption key.
-2. **Integrity**: Cryptographic techniques, such as hashing and digital signatures, can detect if the data has been tampered with or altered during transmission or storage.
-3. **Authentication**: Cryptography can be used to verify the identity of the sender of a message, ensuring that the data comes from a trusted source.
-4. **Non-repudiation**: Cryptographic methods, like digital signatures, can prevent the sender from denying that they originated a particular message or transaction.
-5. **Access Control**: Cryptography is used to restrict access to sensitive information or systems, ensuring that only authorized individuals or entities can gain access.
+Although Caesar used Latin, the same method can be applied to other languages like English. For example, the word ```HELLO FRIEND``` becomes ```OLSSV MYPLUK``` when each letter is shifted three positions to the right. To decrypt a Caesar cipher, you simply reverse the process, shifting each letter in the ciphertext three places to the left to retrieve the original message.
+##### ROT13
+ROT13 is a simple cipher that shifts each letter 13 places in the alphabet, and like the Caesar cipher, it's easy to break. While too basic for modern use, these techniques laid the groundwork for today's encryption methods, which use more complex and layered substitutions to enhance security.
+#### Polyalphabetic Substitution
+---
+A **polyalphabetic substitution cipher** is an encryption method that uses multiple substitution alphabets to encode a message. Unlike simple substitution ciphers (like Caesar or ROT13), which use only one fixed alphabet to replace each letter, polyalphabetic ciphers switch between several alphabets, making them much harder to break.
+In a **monoalphabetic cipher**, each letter of the plaintext is always replaced by the same letter in the ciphertext. For example, if A becomes D, it will *always* be D. This predictable pattern is a vulnerability that cryptanalysts can exploit using frequency analysis. **Polyalphabetic ciphers** counter this weakness by using *different alphabets* at different points in the message. The most famous example is the **Vigenère cipher**. It uses a **keyword** to determine how letters are shifted.
 
-**Some common cryptographic techniques used in cybersecurity include:**
------------------------------------------------------------------------
-- **Symmetric-key Encryption**: Uses a single shared key between the sender and receiver to encrypt and decrypt the data, such as AES (Advanced Encryption Standard) and DES (Data Encryption Standard).
-- **Asymmetric-key Encryption**: Uses a pair of keys, a public key and a private key, to encrypt and decrypt data, such as RSA (Rivest-Shamir-Adleman).
-- **Hashing**: Converts data into a fixed-length, unique output (hash value) that can be used to verify the integrity of the data, such as SHA-256 (Secure Hash Algorithm).
-- **Digital Signatures**: Uses asymmetric-key encryption to provide authentication, integrity, and non-repudiation, such as RSA or ECDSA (Elliptic Curve Digital Signature Algorithm).
+##### How it works (simplified Vigenère example):
+1. Choose a keyword: e.g., `KEY`
+2. Repeat the keyword to match the length of the message:
+   ```
+   Plaintext:   A T T A C K A T D A W N
+   Keyword:     K E Y K E Y K E Y K E Y
+   ```
+3. Convert each letter to its corresponding alphabet position (A=0, B=1, ..., Z=25), then shift the plaintext letter by the value of the keyword letter.
 
-**Ethical hackers and cybersecurity professionals will use a variety of techniques to identify vulnerabilities and strengthen security systems. Here are the most important keys methods:**
------------------------------------------------------------------------
-1. **Penetration Testing**: Simulating cyberattacks to uncover weaknesses in systems before malicious hackers can exploit them. Tools like Metasploit and Burp Suite are commonly used for this purpose.
+This method varies the substitution with each letter, making patterns much harder to detect.
+##### Why It’s Stronger:
+- **Frequency analysis** is less effective because the same letter in the plaintext may be encrypted as different letters in the ciphertext.
+- It increases the complexity of the cipher depending on the length and randomness of the keyword.
 
-2. **Network Scanning**: Identifying open ports, services, and potential vulnerabilities in a network using tools like Nmap and Wireshark.
+#### Transposition Ciphers
+---
+A **transposition cipher** is a type of encryption where the positions of the characters in the plaintext are rearranged according to a certain system, but the actual characters themselves are not changed.
+Unlike substitution ciphers, which **replace** characters with other characters, **transposition ciphers** **shuffle** the characters around. The goal is to obscure the original message by changing the order of the letters based on a specific pattern or key.
 
-3. **Password Cracking**: Testing the strength of passwords using tools like John the Ripper and Hydra to ensure they are robust against brute-force attacks.
+##### Simple Example:
+Let’s take the message:
+```
+HELLO WORLD
+```
 
-4. **Social Engineering**: Manipulating individuals into revealing confidential information through techniques like phishing, pretexting, or baiting.
+And use a simple transposition rule: **write it in rows of 4 letters**:
 
-5. **Wireless Network Attacks**: Assessing the security of Wi-Fi networks using tools like Aircrack-ng to identify weak encryption protocols.
+```
+H E L L  
+O   W O  
+R L D
+```
 
-6. **Man-in-the-Middle (MitM) Attacks**: Intercepting and analyzing communications between two parties to detect vulnerabilities and secure data transmission.
+Now read it column by column:
 
-7. **Open-Source Intelligence (OSINT)**: Gathering publicly available information about a target to identify potential security risks.
+```
+H O R E   L L W L D O
+```
 
-8. **Adversary Simulation**: Using platforms like Cobalt Strike to mimic advanced cyber threats and test an organization's defenses.
-These techniques are essential for staying ahead of evolving cyber threats and ensuring robust security measures.
+The ciphertext becomes:
+```
+HORELLWLD O
+```
 
-In the modern world, cybersecurity professionals and ethical hackers use these techniques as proactive measures to safeguard systems, protect sensitive data, and stay ahead of emerging cyber threats. Here's how they're applied in practice:
-------------------------------------------------------------------------
+To decrypt it, the receiver must know the rule (e.g., "arrange in rows of 4, then read column-wise") and reverse the process.
 
-1. **Securing Critical Infrastructure**:
-   - Ethical hackers conduct penetration testing on systems that control essential services, like electricity grids or transportation networks, ensuring they can withstand potential cyberattacks.
+##### Types of Transposition Ciphers:
+- **Columnar Transposition**: The message is written in rows under a keyword, then read off by columns according to a pattern based on the keyword.
+- **Rail Fence Cipher**: The message is written in a zigzag pattern across multiple "rails" and then read line by line.
+- **Scytale Cipher** (used by ancient Spartans): A message is written on a strip of paper wrapped around a stick. Without the correct stick size (key), the message remains scrambled.
 
-2. **Protecting Businesses**:
-   - Corporations hire cybersecurity teams to perform network scanning, assess vulnerabilities, and conduct simulated attacks to identify weak spots and strengthen defenses.
+##### Why It’s Useful:
+- It doesn’t change the actual letters, so frequency analysis isn’t immediately helpful.
+- It can be combined with substitution ciphers for increased security—this is known as a **product cipher**.
 
-3. **Preventing Data Breaches**:
-   - Professionals use techniques like password cracking and OSINT to test an organization's preparedness against data breaches, improving employee awareness and implementing robust security policies.
+#### Steganography
+---
+**Steganography** is the practice of hiding a secret message, file, or piece of information **within another non-secret file or message** to avoid detection. Unlike cryptography, which scrambles a message so it can’t be understood, steganography **hides the message’s existence entirely**. Steganography, derived from the Greek words *"steganos"* (meaning *covered* or *concealed*) and *"graphein"* (meaning *to write*), literally translates to "covered writing." It refers to the practice of hiding information in such a way that its very existence remains undetected. Unlike cryptography, which focuses on scrambling a message so it can't be read without a key, steganography conceals the message itself, making it invisible to an observer. This is often achieved by embedding data within seemingly ordinary files such as images, audio, video, or even text—so subtly that changes are imperceptible to the human senses. For instance, a picture might appear completely normal but actually contain hidden text encoded in the color values of certain pixels. In contrast to cryptographic methods, which are easily noticeable due to their encrypted, scrambled appearance, steganographic content blends in with its surroundings. However, the two techniques are frequently used in tandem: a message may be encrypted to protect its content, then hidden using steganography to conceal its existence. Steganography has many real-world applications, including digital watermarking for copyright protection, covert communication by journalists or whistleblowers, and even malicious uses such as hiding malware within seemingly harmless files during cyberattacks.
 
-4. **Securing Online Transactions**:
-   - Cryptographic principles are applied to secure payment systems and online banking, while penetration testing ensures these platforms are resistant to attacks.
-
-5. **Enhancing Personal Device Security**:
-   - Developers of antivirus software use techniques like network scanning to detect suspicious activity and update threat databases, providing consumers with better protection.
-
-6. **Safeguarding Communication**:
-   - Messaging platforms hire ethical hackers to test and improve end-to-end encryption protocols, ensuring messages remain private and untampered.
-
-7. **Defending Against Sophisticated Threats**:
-   - Adversary simulations are used to mimic real-world cyberattacks, enabling organizations to measure how effectively their systems respond to advanced threats like ransomware.
-
-8. **Raising Awareness**:
-   - Cybersecurity experts use social engineering techniques in controlled environments to educate employees on the dangers of phishing and how to recognize suspicious activity.
+Applying accurate knowledge about cryptography equips students and users with a comprehensive understanding of its functions from both historical and modern perspectives. This body of knowledge is valuable for everyone to explore, as this journey is a shared learning experience—one through which I am also continuing to grow alongside others.
