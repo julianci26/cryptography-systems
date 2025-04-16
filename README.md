@@ -80,3 +80,11 @@ To decrypt it, the receiver must know the rule (e.g., "arrange in rows of 4, the
 **Steganography** is the practice of hiding a secret message, file, or piece of information **within another non-secret file or message** to avoid detection. Unlike cryptography, which scrambles a message so it can’t be understood, steganography **hides the message’s existence entirely**. Steganography, derived from the Greek words *"steganos"* (meaning *covered* or *concealed*) and *"graphein"* (meaning *to write*), literally translates to "covered writing." It refers to the practice of hiding information in such a way that its very existence remains undetected. Unlike cryptography, which focuses on scrambling a message so it can't be read without a key, steganography conceals the message itself, making it invisible to an observer. This is often achieved by embedding data within seemingly ordinary files such as images, audio, video, or even text—so subtly that changes are imperceptible to the human senses. For instance, a picture might appear completely normal but actually contain hidden text encoded in the color values of certain pixels. In contrast to cryptographic methods, which are easily noticeable due to their encrypted, scrambled appearance, steganographic content blends in with its surroundings. However, the two techniques are frequently used in tandem: a message may be encrypted to protect its content, then hidden using steganography to conceal its existence. Steganography has many real-world applications, including digital watermarking for copyright protection, covert communication by journalists or whistleblowers, and even malicious uses such as hiding malware within seemingly harmless files during cyberattacks.
 
 Applying accurate knowledge about cryptography equips students and users with a comprehensive understanding of its functions from both historical and modern perspectives. This body of knowledge is valuable for everyone to explore, as this journey is a shared learning experience—one through which I am also continuing to grow alongside others.
+## Research
+---
+### Modern Cryptography
+#### Cryptographic Secrecy
+#### Symmetric Encryption
+#### Asymmetric Encryption
+## Projects
+---
