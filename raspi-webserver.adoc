@@ -1,9 +1,9 @@
-= Configure a Web Server on a Raspberry Pi with Ansible
+= Configure a Web Server on a Raspberry Pi
 == Prerequisites
 * A Raspberry Pi OS
 * Your Pi's IP address or hostname
 * User with sudo privileges on the Pi
-== Install NGINX 
+== Setup the Installation for NGINX 
 === Step 1: Update and Upgrade the Raspberry Pi
 [,bash]
 ----
@@ -38,7 +38,7 @@ hostname -I
 ----
 curl http://<IP-ADDRESS>
 ----
-== Install PHP
+== Setup the Installation for PHP
 === Step 1: Install the Recommanded PHP Modules 
 [,bash]
 ----
@@ -86,4 +86,25 @@ sudo nano /var/www/html/index.php
 # Add the following line
 
 <?php phpinfo(); ?>
+----
+== Setup the Installation for MYSQL
+=== Step 1: Install MySQL
+[,bash]
+----
+sudo apt install mariadb-server
+----
+=== Step 2: Secure MySQL
+[,bash]
+----
+sudo mysql_secure_installation
+----
+=== Step 3: Access MySQL and a Database with the User
+[,bash]
+----
+sudo mysql -u root -p
+
+# Creating MySQL Database and the User
+CREATE DATABASE webserver-db;
+CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'mypiwebserver';
+GRANT ALL PRIVILEGES ON webserver-db.* TO 'exampleuser'@'localhost';
 ----
