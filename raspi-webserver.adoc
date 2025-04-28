@@ -1,8 +1,8 @@
 = Configure a Web Server on a Raspberry Pi with Ansible
 == Prerequisites
-. A Raspberry Pi OS
-.. Your Pi's IP address or hostname
-... User with sudo privileges on the Pi
+* A Raspberry Pi OS
+* Your Pi's IP address or hostname
+* User with sudo privileges on the Pi
 == Install NGINX 
 === Step 1: Update and Upgrade the Raspberry Pi
 [,bash]
