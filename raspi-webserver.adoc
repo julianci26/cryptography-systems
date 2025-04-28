@@ -20,7 +20,7 @@ sudo apt install nginx -y
 sudo systemctl status nginx
 ----
 NOTE: If NGINX is not enable and configuration as a proxy server start the following instructions 
-=== IF NOT ENABLE (Option): Enable NGINX Configuration
+
 [,bash]
 ----
 sudo systemctl enable nginx
