@@ -85,6 +85,7 @@ To decrypt it, the receiver must know the rule (e.g., "arrange in rows of 4, the
 Applying accurate knowledge about cryptography equips students and users with a comprehensive understanding of its functions from both historical and modern perspectives. This body of knowledge is valuable for everyone to explore, as this journey is a shared learning experience—one through which I am also continuing to grow alongside others.
 
 In the digital age, steganography has found applications in various fields, including:
+
 * Digital watermarking: Embedding copyright information in images or videos.
 * Covert communication: Hiding messages in images or audio files to avoid detection.
 * Digital forensics: Detecting hidden information in files during investigations.
@@ -101,15 +102,18 @@ And many more.
 Steganography is a powerful tool for protecting sensitive information and ensuring secure communication. However, it is essential to use it responsibly and ethically, as misuse can lead to serious consequences, including legal repercussions and damage to personal or organizational reputations.
 
 You can practice steganography using various 
+
 === Modern Cryptography
 Modern cryptography has evolved significantly from its historical roots, driven by advancements in mathematics, computer science, and the increasing need for secure communication in the digital age. Today, cryptography is a complex field that encompasses various techniques and algorithms designed to protect data from unauthorized access and ensure its integrity.
 Modern cryptography relies heavily on mathematical principles, particularly number theory and algebra. It employs algorithms that are computationally intensive, making it infeasible for attackers to break the encryption without the correct key. The two main types of modern cryptographic techniques are symmetric and asymmetric encryption.
 *Symmetric encryption* uses the same key for both encryption and decryption, while *asymmetric encryption* employs a pair of keys: a public key for encryption and a private key for decryption. This dual-key system allows for secure communication without the need to share a secret key in advance.
 *Symmetric encryption* is generally faster and more efficient for encrypting large amounts of data, while *asymmetric encryption* is often used for secure key exchange and digital signatures. Both methods are essential components of modern cryptographic systems, and they are frequently used in combination to provide robust security for various applications, including online banking, e-commerce, and secure messaging.
+
 ==== Symmetric Encryption
 Symmetric encryption, also known as secret-key or private-key encryption, is a method of encryption where the same key is used for both encryption and decryption. This means that both the sender and the recipient must possess the same key to communicate securely. The key must be kept secret, as anyone with access to it can decrypt the message.
 Symmetric encryption is generally faster and more efficient than asymmetric encryption, making it suitable for encrypting large amounts of data. However, the challenge lies in securely sharing the key between parties without it being intercepted by unauthorized individuals.
 Common symmetric encryption algorithms include:
+
 * [Advanced Encryption Standard (AES)]()
 * Data Encryption Standard (DES)
 * Triple DES (3DES)
@@ -147,13 +151,16 @@ Common symmetric encryption algorithms include:
 * AES-KW-128-CMAC (Key Wrap with 128-bit key in Cipher-based Message Authentication Code)
 * AES-KW-192-CMAC (Key Wrap with 192-bit key in Cipher-based Message Authentication Code)
 * AES-KW-256-CMAC (Key Wrap with 256-bit key in Cipher-based Message Authentication Code)
+
 ==== Cryptographic Secrecy
 Cryptographic secrecy is a fundamental principle in cryptography that ensures the confidentiality of information. It is achieved through various techniques, including encryption, hashing, and digital signatures. The goal is to protect sensitive data from unauthorized access and ensure that only authorized parties can read or modify it.
 Cryptographic secrecy relies on the strength of the algorithms used, the length of the keys, and the security of the key management processes. It is essential for maintaining privacy in digital communications, securing financial transactions, and protecting sensitive information in various fields, including healthcare, government, and business.
+
 ==== Asymmetric Encryption
 Asymmetric encryption, also known as public-key encryption, is a method of encryption that uses a pair of keys: a public key and a private key. The public key is used for encryption, while the private key is used for decryption. This means that anyone can encrypt a message using the recipient's public key, but only the recipient can decrypt it using their private key.
 Asymmetric encryption is widely used for secure communication over the internet, particularly in scenarios where secure key exchange is required. It allows parties to communicate securely without needing to share a secret key in advance. This is particularly useful in situations where secure channels for key exchange are not available.
 Common asymmetric encryption algorithms include:
+
 * RSA (Rivest-Shamir-Adleman)
 * DSA (Digital Signature Algorithm)
 * Diffie-Hellman key exchange
@@ -178,30 +185,35 @@ Common asymmetric encryption algorithms include:
 * Quantum secure digital signatures
 * Quantum secure encryption
 == Resources
+
 === Websites
 * [Cryptography-Caesar Cipher](https://www.sciencedirect.com/topics/computer-science/caesar-cipher)
 * [Cryptography-Substitution Cipher](https://www.sciencedirect.com/topics/computer-science/substitution-cipher)
 * [Cryptography-Transposition Cipher](https://www.sciencedirect.com/topics/computer-science/transposition-cipher)
 * [Steganography](https://www.sciencedirect.com/topics/computer-science/steganography)
 * [Modern Cryptography](https://www.sciencedirect.com/topics/computer-science/modern-cryptography)
-* 
+
 == Tools
 === Mailing Lists
+
 * [Metzdowd](https://www.metzdowd.com/mailman/listinfo/cryptography)
 * [Modern Crypto](https://moderncrypto.org/mailman/listinfo/moderncrypto)
 === Online Tools
+
 * [Boxentriq](https://www.boxentriq.com/) - A website that offers various cryptography tools, including ciphers, codes, and puzzles.
 * [Cryptii](https://cryptii.com/) - A web-based tool for encoding and decoding messages using various ciphers and encoding methods.
 * [Cryptography.io](https://cryptography.io/) - A website that provides resources and tools for learning about cryptography, including tutorials and examples.
 * [CryptoLab](https://manansingh.github.io/Cryptolab-Offline/cryptolab.html) - A web-based platform for learning and practicing cryptography, including various ciphers and algorithms.
 * [CyberChef](https://gchq.github.io/CyberChef/) - A web-based tool for analyzing and decoding data, including cryptography and steganography.
 * [keybase](https://keybase.io/) - A secure messaging and file-sharing platform that uses cryptography to protect user data.
+
 === Websites
+
 * [BetterCrypto](https://bettercrypto.org/) - A website that provides information and resources for improving cryptographic practices and security.
 * [Cryptocurrencies Dashboard](https://tradestie.com/apps/reddit/top-crypto-subreddits/) - A dashboard that provides information and resources for various cryptocurrencies, including news, prices, and market data.
 * [Cryptography Stack Exchange](https://crypto.stackexchange.com/) - A Q&A platform for cryptography-related questions and discussions.
 * [Cryptohack](https://cryptohack.org/) - A platform for learning and practicing cryptography through challenges and puzzles.
 * [Cryptopals](https://cryptopals.com/) - A series of cryptography challenges designed to teach cryptographic concepts and techniques.
 * [Garykessler](https://www.garykessler.net/library/crypto.html) - A website that provides resources and information on cryptography, including tutorials and examples.
-== Projects
 
+== Projects
