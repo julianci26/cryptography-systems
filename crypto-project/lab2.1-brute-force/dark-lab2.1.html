@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <title>Lab 2.1: Cryptography Fundamentals: Brute Force</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #121212;
+        }
+        .header-section {
+            background-color: #1e1e1e;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #00ff00;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .task-section {
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border-color: #444;
+        }
+        .card-header {
+            border-color: #444;
+        }
+        .list-group-item {
+            background-color: #333;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+        .alert-secondary {
+            background-color: #333;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+        a {
+            color: #8ab4f8;
+        }
+        a:hover {
+            color: #aecbfa;
+        }
+        .btn-outline-primary {
+            color: #8ab4f8;
+            border-color: #8ab4f8;
+        }
+        .btn-outline-primary:hover {
+            background-color: #8ab4f8;
+            color: #121212;
+        }
+        footer {
+            border-color: #444 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="mb-4">
+            <h1 class="display-4 text-light">Lab 2.1: Cryptography Fundamentals: Brute Force</h1>
+            <p class="lead text-light">Understanding brute force attacks and implementing basic cryptographic protections</p>
+            <hr class="border-secondary">
+        </header>
+
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Introduction -->
+                <section class="mb-4">
+                    <p>This lab focuses on understanding brute force attacks in cryptography and implementing protections against them. You will explore password cracking techniques, assess cryptographic strength, and implement measures to protect against brute force attempts.</p>
+                </section>
+
+                <!-- Objectives -->
+                <section class="mb-4">
+                    <h2 class="text-light">Objectives</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Understand the principles of brute force attacks in cryptography</li>
+                                <li class="list-group-item">Learn how to implement and execute a basic brute force password cracker</li>
+                                <li class="list-group-item">Analyze the effectiveness of different password complexity requirements</li>
+                                <li class="list-group-item">Implement protections against brute force attacks (rate limiting, account lockout)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Prerequisites -->
+                <section class="mb-4">
+                    <h2 class="text-light">Prerequisites</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <ul>
+                                <li>Basic understanding of cryptographic concepts (hashing, encryption)</li>
+                                <li>Familiarity with command-line tools</li>
+                                <li>Basic Python programming knowledge</li>
+                                <li>Hashcat or John the Ripper installed (for optional tasks)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lab Tasks -->
+                <section>
+                    <h2 class="mb-3 text-light">Lab Tasks</h2>
+
+                    <!-- Task 1 -->
+                    <div class="task-section">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Task 1: Implementing a Basic Brute Force Tool</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Create a simple Python script that performs a brute force attack on a simple password.</p>
+                                <ol>
+                                    <li>Write a Python script that attempts to crack a 4-digit PIN code (0000-9999)</li>
+                                    <li>Measure and report the time it takes to find the correct PIN</li>
+                                    <li>Experiment with different PIN lengths to observe how complexity affects cracking time</li>
+                                </ol>
+                                <div class="alert alert-secondary">
+                                    <strong>Example:</strong> Basic brute force script:
+                                    <pre>
+import time
+import hashlib
+
+def hash_pin(pin):
+    # Simple hash function for demonstration
+    return hashlib.md5(str(pin).encode()).hexdigest()
+    
+def brute_force(target_hash):
+    start_time = time.time()
+    attempts = 0
+    
+    for pin in range(10000):  # 0000-9999
+        formatted_pin = f"{pin:04d}"  # Format as 4 digits with leading zeros
+        attempts += 1
+        
+        if hash_pin(formatted_pin) == target_hash:
+            end_time = time.time()
+            print(f"PIN found: {formatted_pin}")
+            print(f"Time taken: {end_time - start_time:.2f} seconds")
+            print(f"Attempts: {attempts}")
+            return formatted_pin
+            
+    print("PIN not found.")
+    return None
+
+# Example usage
+target_pin = "1234"
+target_hash = hash_pin(target_pin)
+brute_force(target_hash)
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 -->
+                    <div class="task-section">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Task 2: Analyzing Password Strength</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Analyze different password types to understand their resistance to brute force attacks.</p>
+                                <ol>
+                                    <li>Calculate the total possible combinations for passwords with different characteristics (length, character sets)</li>
+                                    <li>Estimate the time required to brute force passwords of varying complexity</li>
+                                    <li>Document your findings in a password strength comparison table</li>
+                                </ol>
+                                <div class="alert alert-secondary">
+                                    <strong>Example:</strong> Password space calculation:
+                                    <pre>
+# For a password of length L using a character set of size C:
+# Total possible combinations = C^L
+
+# Examples:
+# 4-digit PIN: 10^4 = 10,000 combinations
+# 8-char lowercase: 26^8 = 208,827,064,576 combinations
+# 8-char with lower, upper, digits, symbols: 94^8 = 6,095,689,385,410,816 combinations
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 3 -->
+                    <div class="task-section">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Task 3: Implementing Brute Force Protections</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Implement basic protections against brute force attacks.</p>
+                                <ol>
+                                    <li>Create a simple login system with rate limiting (e.g., limit to 3 attempts per minute)</li>
+                                    <li>Implement temporary account lockout after multiple failed attempts</li>
+                                    <li>Add a time delay that increases with each failed attempt</li>
+                                </ol>
+                                <div class="alert alert-secondary">
+                                    <strong>Example:</strong> Rate limiting implementation:
+                                    <pre>
+class LoginProtection:
+    def __init__(self):
+        self.failed_attempts = {}  # IP/username -> [timestamp1, timestamp2, ...]
+        self.locked_accounts = {}  # username -> unlock_time
+        
+    def check_login(self, username, password, ip_address):
+        # Check if account is locked
+        if username in self.locked_accounts:
+            if time.time() < self.locked_accounts[username]:
+                remaining = int(self.locked_accounts[username] - time.time())
+                return False, f"Account locked. Try again in {remaining} seconds."
+            else:
+                del self.locked_accounts[username]
+        
+        # Check login rate
+        key = f"{ip_address}:{username}"
+        current_time = time.time()
+        
+        # Remove attempts older than 60 seconds
+        if key in self.failed_attempts:
+            self.failed_attempts[key] = [t for t in self.failed_attempts[key] 
+                                        if current_time - t < 60]
+        
+        # Verify password (simplified)
+        if password == "correct_password":
+            if key in self.failed_attempts:
+                del self.failed_attempts[key]
+            return True, "Login successful"
+            
+        # Failed login attempt
+        if key not in self.failed_attempts:
+            self.failed_attempts[key] = []
+        self.failed_attempts[key].append(current_time)
+        
+        # Check for lockout condition
+        if len(self.failed_attempts[key]) >= 5:
+            lockout_time = current_time + 300  # 5 minutes
+            self.locked_accounts[username] = lockout_time
+            return False, "Too many failed attempts. Account locked for 5 minutes."
+            
+        # Apply increasing delay
+        delay = len(self.failed_attempts[key]) * 2
+        time.sleep(delay)
+        
+        return False, f"Invalid credentials. {5-len(self.failed_attempts[key])} attempts remaining."
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="mt-4 mb-5">
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white">
+                            <h2 class="mb-0">Conclusion</h2>
+                        </div>
+                        <div class="card-body">
+                            <p>This lab provided hands-on experience with brute force attacks and countermeasures. You learned how brute force attempts work, calculated theoretical password strength, and implemented basic protections that can significantly improve security against these common attack vectors.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">Resources</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="text-light">Tools Required</h5>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Python 3
+                                <a href="#" class="btn btn-sm btn-outline-primary">Download</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hashcat (optional)
+                                <a href="#" class="btn btn-sm btn-outline-primary">Documentation</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                John the Ripper (optional)
+                                <a href="#" class="btn btn-sm btn-outline-primary">Download</a>
+                            </li>
+                        </ul>
+                        
+                        <h5 class="text-light">Helpful Links</h5>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">OWASP Brute Force Prevention Guide</a>
+                            <a href="#" class="list-group-item list-group-item-action">Password Entropy Calculator</a>
+                            <a href="#" class="list-group-item list-group-item-action">Cryptography Best Practices</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5 pt-3 border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 style="font-weight: bold;" class="text-light">Contact</h4>
+                        <p>Email: contact@securitylabs.com</p>
+                        <p>Twitter: @securitylabs</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p>&copy; 2025 Sypher Security Labs</p>
+                        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Home</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

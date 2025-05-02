@@ -1,0 +1,207 @@
+= Cryptography Systems
+
+== Introduction
+Cryptography is the art and science of securing information by transforming it into an unreadable format, only to be deciphered by those who possess the correct key. It plays a crucial role in ensuring the confidentiality, integrity, and authenticity of data in our increasingly digital world. This document provides an overview of cryptography, its historical context, and its modern applications.
+
+=== Historical Cryptography
+*Cryptography* has a rich history that dates back thousands of years. The earliest known use of cryptography can be traced to ancient Egypt, where hieroglyphics were used to encode messages. The Greeks and Romans also employed various ciphers, such as *Caesar cipher*, to protect their communications. Over time, cryptography evolved from simple substitution ciphers to more complex systems involving mathematical algorithms and computer technology.
+
+In the past, cryptography was primarily a tool for military and diplomatic communication. However, with the advent of the internet and digital communication, its importance has expanded to include securing personal data, financial transactions, and sensitive information in various fields, including healthcare, government, and business.
+
+==== Substitution Ciphers
+A *substitution cipher* is a method of encryption that replaces each character or symbol in a message with another. This technique is relatively simple and one of the oldest forms of cryptography. A well-known example is the Caesar cipher, which is believed to have been used by Julius Caesar. This cipher works by shifting each letter in the alphabet by a fixed number of positions. For instance, with a shift of three, A becomes D, B becomes E, and so on. At the end of the alphabet, it wraps around—so Y becomes B and Z becomes C.
+
+Although Caesar used Latin, the same method can be applied to other languages like English. For example, the word `HELLO FRIEND` becomes `OLSSV MYPLUK` when each letter is shifted three positions to the right. To decrypt a Caesar cipher, you simply reverse the process, shifting each letter in the ciphertext three places to the left to retrieve the original message.
+===== ROT13
+ROT13 is a simple cipher that shifts each letter 13 places in the alphabet, and like the Caesar cipher, it's easy to break. While too basic for modern use, these techniques laid the groundwork for today's encryption methods, which use more complex and layered substitutions to enhance security.
+==== Polyalphabetic Substitution
+A *polyalphabetic substitution cipher* is an encryption method that uses multiple substitution alphabets to encode a message. Unlike simple substitution ciphers (like Caesar or ROT13), which use only one fixed alphabet to replace each letter, polyalphabetic ciphers switch between several alphabets, making them much harder to break.
+In a *monoalphabetic cipher*, each letter of the plaintext is always replaced by the same letter in the ciphertext. For example, if A becomes D, it will _always_ be D. This predictable pattern is a vulnerability that cryptanalysts can exploit using frequency analysis. *Polyalphabetic ciphers* counter this weakness by using _different alphabets_ at different points in the message. The most famous example is the *Vigenère cipher*. It uses a *keyword* to determine how letters are shifted. For instance, if the keyword is "KEY," the first letter of the plaintext is shifted by K (10 positions), the second letter by E (4 positions), and so on. This means that the same letter in the plaintext can be encrypted to different letters in the ciphertext, depending on its position and the keyword. This complexity makes frequency analysis much less effective, as the same letter can appear multiple times in different forms.
+The Vigenère cipher is a significant advancement over simple substitution ciphers, as it introduces a layer of complexity that makes it much harder to crack. However, it is still vulnerable to certain attacks, especially if the keyword is short or predictable. Modern cryptography has evolved far beyond these early methods, employing advanced mathematical algorithms and computational techniques to ensure data security.
+
+===== How it works (simplified Vigenère example):
+* Choose a keyword (e.g., "KEY") and repeat it to match the length of the plaintext.
+* For example, if the plaintext is "ATTACKATDAWN," the keyword would be repeated as:
+
+[,bash]
+----
+Plaintext:   A T T A C K A T D A W N
+Keyword:     K E Y K E Y K E Y K E Y
+----
+
+* Convert each letter to its corresponding alphabet position (A=0, B=1, ..., Z=25), then shift the plaintext letter by the value of the keyword letter.
+
+This method varies the substitution with each letter, making patterns much harder to detect.
+===== Why It’s Stronger:
+- *Frequency analysis* is less effective because the same letter in the plaintext may be encrypted as different letters in the ciphertext.
+- It increases the complexity of the cipher depending on the length and randomness of the keyword.
+
+==== Transposition Ciphers
+A *transposition cipher* is a type of encryption where the positions of the characters in the plaintext are rearranged according to a certain system, but the actual characters themselves are not changed.
+Unlike substitution ciphers, which *replace* characters with other characters, *transposition ciphers* _shuffle_ the characters around. The goal is to obscure the original message by changing the order of the letters based on a specific pattern or key.
+
+===== Simple Example:
+Let’s take the message:
+[,bash]
+----
+HELLO WORLD
+----
+
+And use a simple transposition rule: **write it in rows of 4 letters**:
+[,bash]
+----
+H E L L  
+O   W O  
+R L D
+----
+
+Now read it column by column:
+
+[,bash]
+----
+H O R E   L L W L D O
+----
+
+The ciphertext becomes:
+[,bash]
+----
+HORELLWLD O
+----
+
+To decrypt it, the receiver must know the rule (e.g., "arrange in rows of 4, then read column-wise") and reverse the process.
+
+===== Types of Transposition Ciphers:
+* *Columnar Transposition*: The message is written in rows under a keyword, then read off by columns according to a pattern based on the keyword.
+* *Rail Fence Cipher*: The message is written in a zigzag pattern across multiple "rails" and then read line by line.
+* *Scytale Cipher* (used by ancient Spartans): A message is written on a strip of paper wrapped around a stick. Without the correct stick size (key), the message remains scrambled.
+
+===== Why It’s Useful:
+- It doesn’t change the actual letters, so frequency analysis isn’t immediately helpful.
+- It can be combined with substitution ciphers for increased security—this is known as a *product cipher*.
+
+==== Steganography
+*Steganography* is the practice of hiding a secret message, file, or piece of information *within another non-secret file or message* to avoid detection. Unlike cryptography, which scrambles a message so it can’t be understood, steganography *hides the message’s existence entirely*. Steganography, derived from the Greek words _"steganos"_ (meaning _covered_ or _concealed_) and _"graphein"_ (meaning _to write_), literally translates to _"covered writing."_ It refers to the practice of hiding information in such a way that its very existence remains undetected. Unlike cryptography, which focuses on scrambling a message so it can't be read without a key, steganography conceals the message itself, making it invisible to an observer. This is often achieved by embedding data within seemingly ordinary files such as images, audio, video, or even text—so subtly that changes are imperceptible to the human senses. For instance, a picture might appear completely normal but actually contain hidden text encoded in the color values of certain pixels. In contrast to cryptographic methods, which are easily noticeable due to their encrypted, scrambled appearance, steganographic content blends in with its surroundings. However, the two techniques are frequently used in tandem: a message may be encrypted to protect its content, then hidden using steganography to conceal its existence. Steganography has many real-world applications, including digital watermarking for copyright protection, covert communication by journalists or whistleblowers, and even malicious uses such as hiding malware within seemingly harmless files during cyberattacks.
+
+Applying accurate knowledge about cryptography equips students and users with a comprehensive understanding of its functions from both historical and modern perspectives. This body of knowledge is valuable for everyone to explore, as this journey is a shared learning experience—one through which I am also continuing to grow alongside others.
+
+In the digital age, steganography has found applications in various fields, including:
+* Digital watermarking: Embedding copyright information in images or videos.
+* Covert communication: Hiding messages in images or audio files to avoid detection.
+* Digital forensics: Detecting hidden information in files during investigations.
+* Malware concealment: Hiding malicious code within seemingly harmless files to evade detection by security software.
+* Data integrity: Ensuring that the hidden information remains intact and unaltered during transmission.
+* Digital rights management: Protecting intellectual property by embedding information about ownership and usage rights.
+* Secure communications: Hiding sensitive information in plain sight to prevent interception by unauthorized parties.
+* Covert channels: Creating hidden communication paths within existing protocols to bypass security measures.
+* Digital signatures: Embedding signatures within files to verify authenticity and integrity.
+* Data recovery: Using steganography to hide backup information within files, allowing for recovery in case of data loss.
+* Digital identity protection: Hiding personal information within files to prevent unauthorized access.
+* Secure file sharing: Concealing sensitive information within files to ensure secure transmission.
+And many more.
+Steganography is a powerful tool for protecting sensitive information and ensuring secure communication. However, it is essential to use it responsibly and ethically, as misuse can lead to serious consequences, including legal repercussions and damage to personal or organizational reputations.
+
+You can practice steganography using various 
+=== Modern Cryptography
+Modern cryptography has evolved significantly from its historical roots, driven by advancements in mathematics, computer science, and the increasing need for secure communication in the digital age. Today, cryptography is a complex field that encompasses various techniques and algorithms designed to protect data from unauthorized access and ensure its integrity.
+Modern cryptography relies heavily on mathematical principles, particularly number theory and algebra. It employs algorithms that are computationally intensive, making it infeasible for attackers to break the encryption without the correct key. The two main types of modern cryptographic techniques are symmetric and asymmetric encryption.
+*Symmetric encryption* uses the same key for both encryption and decryption, while *asymmetric encryption* employs a pair of keys: a public key for encryption and a private key for decryption. This dual-key system allows for secure communication without the need to share a secret key in advance.
+*Symmetric encryption* is generally faster and more efficient for encrypting large amounts of data, while *asymmetric encryption* is often used for secure key exchange and digital signatures. Both methods are essential components of modern cryptographic systems, and they are frequently used in combination to provide robust security for various applications, including online banking, e-commerce, and secure messaging.
+==== Symmetric Encryption
+Symmetric encryption, also known as secret-key or private-key encryption, is a method of encryption where the same key is used for both encryption and decryption. This means that both the sender and the recipient must possess the same key to communicate securely. The key must be kept secret, as anyone with access to it can decrypt the message.
+Symmetric encryption is generally faster and more efficient than asymmetric encryption, making it suitable for encrypting large amounts of data. However, the challenge lies in securely sharing the key between parties without it being intercepted by unauthorized individuals.
+Common symmetric encryption algorithms include:
+* [Advanced Encryption Standard (AES)]()
+* Data Encryption Standard (DES)
+* Triple DES (3DES)
+* Blowfish
+* Twofish
+* RC4
+* RC5
+* RC6
+* IDEA (International Data Encryption Algorithm)
+* Serpent
+* CAST-128
+* Camellia
+* ChaCha20
+* Salsa20
+* TEA (Tiny Encryption Algorithm)
+* XTEA (Extended Tiny Encryption Algorithm)
+* SEED
+* ARIA
+* GOST (Russian Federal Standard)
+* AES-GCM (Galois/Counter Mode)
+* AES-CCM (Counter with CBC-MAC)
+* AES-CMAC (Cipher-based Message Authentication Code)
+* AES-KW (Key Wrap)
+* AES-KWP (Key Wrap with Padding)
+* AES-KW-AES (Key Wrap with AES)
+* AES-KW-128 (Key Wrap with 128-bit key)
+* AES-KW-192 (Key Wrap with 192-bit key)
+* AES-KW-256 (Key Wrap with 256-bit key)
+* AES-KW-128-GCM (Key Wrap with 128-bit key in Galois/Counter Mode)
+* AES-KW-192-GCM (Key Wrap with 192-bit key in Galois/Counter Mode)
+* AES-KW-256-GCM (Key Wrap with 256-bit key in Galois/Counter Mode)
+* AES-KW-128-CCM (Key Wrap with 128-bit key in Counter with CBC-MAC)
+* AES-KW-192-CCM (Key Wrap with 192-bit key in Counter with CBC-MAC)
+* AES-KW-256-CCM (Key Wrap with 256-bit key in Counter with CBC-MAC)
+* AES-KW-128-CMAC (Key Wrap with 128-bit key in Cipher-based Message Authentication Code)
+* AES-KW-192-CMAC (Key Wrap with 192-bit key in Cipher-based Message Authentication Code)
+* AES-KW-256-CMAC (Key Wrap with 256-bit key in Cipher-based Message Authentication Code)
+==== Cryptographic Secrecy
+Cryptographic secrecy is a fundamental principle in cryptography that ensures the confidentiality of information. It is achieved through various techniques, including encryption, hashing, and digital signatures. The goal is to protect sensitive data from unauthorized access and ensure that only authorized parties can read or modify it.
+Cryptographic secrecy relies on the strength of the algorithms used, the length of the keys, and the security of the key management processes. It is essential for maintaining privacy in digital communications, securing financial transactions, and protecting sensitive information in various fields, including healthcare, government, and business.
+==== Asymmetric Encryption
+Asymmetric encryption, also known as public-key encryption, is a method of encryption that uses a pair of keys: a public key and a private key. The public key is used for encryption, while the private key is used for decryption. This means that anyone can encrypt a message using the recipient's public key, but only the recipient can decrypt it using their private key.
+Asymmetric encryption is widely used for secure communication over the internet, particularly in scenarios where secure key exchange is required. It allows parties to communicate securely without needing to share a secret key in advance. This is particularly useful in situations where secure channels for key exchange are not available.
+Common asymmetric encryption algorithms include:
+* RSA (Rivest-Shamir-Adleman)
+* DSA (Digital Signature Algorithm)
+* Diffie-Hellman key exchange
+* Elliptic Curve Cryptography (ECC)
+* ElGamal encryption
+* NTRUEncrypt
+* Post-Quantum Cryptography (PQC)
+* Lattice-based cryptography
+* Code-based cryptography
+* Multivariate polynomial cryptography
+* Hash-based cryptography
+* Isogeny-based cryptography
+* Supersingular isogeny-based cryptography
+* Quantum key distribution (QKD)
+* Quantum-resistant algorithms
+* Quantum-safe cryptography
+* Quantum key agreement
+* Quantum digital signatures
+* Quantum secure communication
+* Quantum secure multiparty computation
+* Quantum secure key exchange
+* Quantum secure digital signatures
+* Quantum secure encryption
+== Resources
+=== Websites
+* [Cryptography-Caesar Cipher](https://www.sciencedirect.com/topics/computer-science/caesar-cipher)
+* [Cryptography-Substitution Cipher](https://www.sciencedirect.com/topics/computer-science/substitution-cipher)
+* [Cryptography-Transposition Cipher](https://www.sciencedirect.com/topics/computer-science/transposition-cipher)
+* [Steganography](https://www.sciencedirect.com/topics/computer-science/steganography)
+* [Modern Cryptography](https://www.sciencedirect.com/topics/computer-science/modern-cryptography)
+* 
+== Tools
+=== Mailing Lists
+* [Metzdowd](https://www.metzdowd.com/mailman/listinfo/cryptography)
+* [Modern Crypto](https://moderncrypto.org/mailman/listinfo/moderncrypto)
+=== Online Tools
+* [Boxentriq](https://www.boxentriq.com/) - A website that offers various cryptography tools, including ciphers, codes, and puzzles.
+* [Cryptii](https://cryptii.com/) - A web-based tool for encoding and decoding messages using various ciphers and encoding methods.
+* [Cryptography.io](https://cryptography.io/) - A website that provides resources and tools for learning about cryptography, including tutorials and examples.
+* [CryptoLab](https://manansingh.github.io/Cryptolab-Offline/cryptolab.html) - A web-based platform for learning and practicing cryptography, including various ciphers and algorithms.
+* [CyberChef](https://gchq.github.io/CyberChef/) - A web-based tool for analyzing and decoding data, including cryptography and steganography.
+* [keybase](https://keybase.io/) - A secure messaging and file-sharing platform that uses cryptography to protect user data.
+=== Websites
+* [BetterCrypto](https://bettercrypto.org/) - A website that provides information and resources for improving cryptographic practices and security.
+* [Cryptocurrencies Dashboard](https://tradestie.com/apps/reddit/top-crypto-subreddits/) - A dashboard that provides information and resources for various cryptocurrencies, including news, prices, and market data.
+* [Cryptography Stack Exchange](https://crypto.stackexchange.com/) - A Q&A platform for cryptography-related questions and discussions.
+* [Cryptohack](https://cryptohack.org/) - A platform for learning and practicing cryptography through challenges and puzzles.
+* [Cryptopals](https://cryptopals.com/) - A series of cryptography challenges designed to teach cryptographic concepts and techniques.
+* [Garykessler](https://www.garykessler.net/library/crypto.html) - A website that provides resources and information on cryptography, including tutorials and examples.
+== Projects
+
