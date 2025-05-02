@@ -218,3 +218,7 @@ Common asymmetric encryption algorithms include:
 * [Garykessler](https://www.garykessler.net/library/crypto.html) - A website that provides resources and information on cryptography, including tutorials and examples.
 
 == Projects
+
+* PROJ01 - Network Analysis and Logging
+* PROJ02 - 2.1 Brute Forcing and 2.2 Hashing
+* PORJ03 - Linux Security
