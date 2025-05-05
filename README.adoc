@@ -220,4 +220,4 @@ Common asymmetric encryption algorithms include:
 
 * PROJ01 - Network Analysis and Logging
 * PROJ02 - Brute Forcing and Hashing
-* PORJ03 - Linux Security
+* PROJ03 - Linux Security
