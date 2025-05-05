@@ -113,7 +113,7 @@ Symmetric encryption, also known as secret-key or private-key encryption, is a m
 Symmetric encryption is generally faster and more efficient than asymmetric encryption, making it suitable for encrypting large amounts of data. However, the challenge lies in securely sharing the key between parties without it being intercepted by unauthorized individuals.
 Common symmetric encryption algorithms include:
 
-* [Advanced Encryption Standard (AES)]()
+* Advanced Encryption Standard (AES)
 * Data Encryption Standard (DES)
 * Triple DES (3DES)
 * Blowfish
