@@ -101,8 +101,7 @@ In the digital age, steganography has found applications in various fields, incl
 And many more.
 Steganography is a powerful tool for protecting sensitive information and ensuring secure communication. However, it is essential to use it responsibly and ethically, as misuse can lead to serious consequences, including legal repercussions and damage to personal or organizational reputations.
 
-You can practice steganography using various 
-
+You can practice steganography using a simple way to understand how the hide data with CyberChef. For instance, 
 === Modern Cryptography
 Modern cryptography has evolved significantly from its historical roots, driven by advancements in mathematics, computer science, and the increasing need for secure communication in the digital age. Today, cryptography is a complex field that encompasses various techniques and algorithms designed to protect data from unauthorized access and ensure its integrity.
 Modern cryptography relies heavily on mathematical principles, particularly number theory and algebra. It employs algorithms that are computationally intensive, making it infeasible for attackers to break the encryption without the correct key. The two main types of modern cryptographic techniques are symmetric and asymmetric encryption.
@@ -187,35 +186,35 @@ Common asymmetric encryption algorithms include:
 == Resources
 
 === Websites
-* [Cryptography-Caesar Cipher](https://www.sciencedirect.com/topics/computer-science/caesar-cipher)
-* [Cryptography-Substitution Cipher](https://www.sciencedirect.com/topics/computer-science/substitution-cipher)
-* [Cryptography-Transposition Cipher](https://www.sciencedirect.com/topics/computer-science/transposition-cipher)
-* [Steganography](https://www.sciencedirect.com/topics/computer-science/steganography)
-* [Modern Cryptography](https://www.sciencedirect.com/topics/computer-science/modern-cryptography)
+* https://www.sciencedirect.com/topics/computer-science/caesar-cipher[Cryptography-Caeser Cipher]
+* https://www.sciencedirect.com/topics/computer-science/substitution-cipher[Cryptography-Substitution Cipher]
+* https://www.sciencedirect.com/topics/computer-science/transposition-cipher[Cryptography-Transposition Cipher]
+* https://www.sciencedirect.com/topics/computer-science/steganography[Steganography]
+* https://www.sciencedirect.com/topics/computer-science/modern-cryptography[Modern Cryptography]
 
 == Tools
 === Mailing Lists
 
-* [Metzdowd](https://www.metzdowd.com/mailman/listinfo/cryptography)
-* [Modern Crypto](https://moderncrypto.org/mailman/listinfo/moderncrypto)
+* https://www.metzdowd.com/mailman/listinfo/cryptography[Metzdowd]
+* https://moderncrypto.org/mailman/listinfo/moderncrypto[Modern Crypto]
 
 === Online Tools
 
-* [Boxentriq](https://www.boxentriq.com/) - A website that offers various cryptography tools, including ciphers, codes, and puzzles.
-* [Cryptii](https://cryptii.com/) - A web-based tool for encoding and decoding messages using various ciphers and encoding methods.
-* [Cryptography.io](https://cryptography.io/) - A website that provides resources and tools for learning about cryptography, including tutorials and examples.
-* [CryptoLab](https://manansingh.github.io/Cryptolab-Offline/cryptolab.html) - A web-based platform for learning and practicing cryptography, including various ciphers and algorithms.
-* [CyberChef](https://gchq.github.io/CyberChef/) - A web-based tool for analyzing and decoding data, including cryptography and steganography.
-* [keybase](https://keybase.io/) - A secure messaging and file-sharing platform that uses cryptography to protect user data.
+* https://www.boxentriq.com/[Boxentriq] - A website that offers various cryptography tools, including ciphers, codes, and puzzles.
+* https://cryptii.com/[Cryptii] - A web-based tool for encoding and decoding messages using various ciphers and encoding methods.
+* https://cryptography.io/[Cryptography.io]- A website that provides resources and tools for learning about cryptography, including tutorials and examples.
+* https://manansingh.github.io/Cryptolab-Offline/cryptolab.html[CryptoLab] - A web-based platform for learning and practicing cryptography, including various ciphers and algorithms.
+* https://gchq.github.io/CyberChef/[CyberChef] - A web-based tool for analyzing and decoding data, including cryptography and steganography.
+* https://keybase.io/[keybase] - A secure messaging and file-sharing platform that uses cryptography to protect user data.
 
 === Websites
 
-* [BetterCrypto](https://bettercrypto.org/) - A website that provides information and resources for improving cryptographic practices and security.
-* [Cryptocurrencies Dashboard](https://tradestie.com/apps/reddit/top-crypto-subreddits/) - A dashboard that provides information and resources for various cryptocurrencies, including news, prices, and market data.
-* [Cryptography Stack Exchange](https://crypto.stackexchange.com/) - A Q&A platform for cryptography-related questions and discussions.
-* [Cryptohack](https://cryptohack.org/) - A platform for learning and practicing cryptography through challenges and puzzles.
-* [Cryptopals](https://cryptopals.com/) - A series of cryptography challenges designed to teach cryptographic concepts and techniques.
-* [Garykessler](https://www.garykessler.net/library/crypto.html) - A website that provides resources and information on cryptography, including tutorials and examples.
+* https://bettercrypto.org/[BetterCrypto] - A website that provides information and resources for improving cryptographic practices and security.
+* https://tradestie.com/apps/reddit/top-crypto-subreddits/[Cryptocurrencies Dashboard] - A dashboard that provides information and resources for various cryptocurrencies, including news, prices, and market data.
+* https://crypto.stackexchange.com/[Cryptography Stack Exchange] - A Q&A platform for cryptography-related questions and discussions.
+* https://cryptohack.org/[Cryptohack] - A platform for learning and practicing cryptography through challenges and puzzles.
+* https://cryptopals.com/[Cryptopals] - A series of cryptography challenges designed to teach cryptographic concepts and techniques.
+* https://www.garykessler.net/library/crypto.html[Garykessler] - A website that provides resources and information on cryptography, including tutorials and examples.
 
 == Projects
 
