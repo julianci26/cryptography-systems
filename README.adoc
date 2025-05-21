@@ -89,22 +89,23 @@ Applying accurate knowledge about cryptography equips students and users with a 
 
 In the digital age, steganography has found applications in various fields, including:
 
-* Digital watermarking: Embedding copyright information in images or videos.
-* Covert communication: Hiding messages in images or audio files to avoid detection.
-* Digital forensics: Detecting hidden information in files during investigations.
-* Malware concealment: Hiding malicious code within seemingly harmless files to evade detection by security software.
-* Data integrity: Ensuring that the hidden information remains intact and unaltered during transmission.
-* Digital rights management: Protecting intellectual property by embedding information about ownership and usage rights.
-* Secure communications: Hiding sensitive information in plain sight to prevent interception by unauthorized parties.
-* Covert channels: Creating hidden communication paths within existing protocols to bypass security measures.
-* Digital signatures: Embedding signatures within files to verify authenticity and integrity.
-* Data recovery: Using steganography to hide backup information within files, allowing for recovery in case of data loss.
-* Digital identity protection: Hiding personal information within files to prevent unauthorized access.
-* Secure file sharing: Concealing sensitive information within files to ensure secure transmission.
+* *Digital watermarking*: Embedding copyright information in images or videos.
+* *Covert communication*: Hiding messages in images or audio files to avoid detection.
+* *Digital forensics*: Detecting hidden information in files during investigations.
+* *Malware concealment*: Hiding malicious code within seemingly harmless files to evade detection by security software.
+* *Data integrity*: Ensuring that the hidden information remains intact and unaltered during transmission.
+* *Digital rights management*: Protecting intellectual property by embedding information about ownership and usage rights.
+* *Secure communications*: Hiding sensitive information in plain sight to prevent interception by unauthorized parties.
+* *Covert channels*: Creating hidden communication paths within existing protocols to bypass security measures.
+* *Digital signatures*: Embedding signatures within files to verify authenticity and integrity.
+* *Data recovery*: Using steganography to hide backup information within files, allowing for recovery in case of data loss.
+* *Digital identity protection*: Hiding personal information within files to prevent unauthorized access.
+* *Secure file sharing*: Concealing sensitive information within files to ensure secure transmission.
 And many more.
 Steganography is a powerful tool for protecting sensitive information and ensuring secure communication. However, it is essential to use it responsibly and ethically, as misuse can lead to serious consequences, including legal repercussions and damage to personal or organizational reputations.
 
 You can practice steganography using a simple way to understand how the hide data with CyberChef. For instance, 
+
 === Modern Cryptography
 Modern cryptography has evolved significantly from its historical roots, driven by advancements in mathematics, computer science, and the increasing need for secure communication in the digital age. Today, cryptography is a complex field that encompasses various techniques and algorithms designed to protect data from unauthorized access and ensure its integrity.
 Modern cryptography relies heavily on mathematical principles, particularly number theory and algebra. It employs algorithms that are computationally intensive, making it infeasible for attackers to break the encryption without the correct key. The two main types of modern cryptographic techniques are symmetric and asymmetric encryption.
