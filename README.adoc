@@ -12,8 +12,10 @@ In the past, cryptography was primarily a tool for military and diplomatic commu
 A *substitution cipher* is a method of encryption that replaces each character or symbol in a message with another. This technique is relatively simple and one of the oldest forms of cryptography. A well-known example is the Caesar cipher, which is believed to have been used by Julius Caesar. This cipher works by shifting each letter in the alphabet by a fixed number of positions. For instance, with a shift of three, A becomes D, B becomes E, and so on. At the end of the alphabet, it wraps around—so Y becomes B and Z becomes C.
 
 Although Caesar used Latin, the same method can be applied to other languages like English. For example, the word `HELLO FRIEND` becomes `OLSSV MYPLUK` when each letter is shifted three positions to the right. To decrypt a Caesar cipher, you simply reverse the process, shifting each letter in the ciphertext three places to the left to retrieve the original message.
+
 ===== ROT13
 ROT13 is a simple cipher that shifts each letter 13 places in the alphabet, and like the Caesar cipher, it's easy to break. While too basic for modern use, these techniques laid the groundwork for today's encryption methods, which use more complex and layered substitutions to enhance security.
+
 ==== Polyalphabetic Substitution
 A *polyalphabetic substitution cipher* is an encryption method that uses multiple substitution alphabets to encode a message. Unlike simple substitution ciphers (like Caesar or ROT13), which use only one fixed alphabet to replace each letter, polyalphabetic ciphers switch between several alphabets, making them much harder to break.
 In a *monoalphabetic cipher*, each letter of the plaintext is always replaced by the same letter in the ciphertext. For example, if A becomes D, it will _always_ be D. This predictable pattern is a vulnerability that cryptanalysts can exploit using frequency analysis. *Polyalphabetic ciphers* counter this weakness by using _different alphabets_ at different points in the message. The most famous example is the *Vigenère cipher*. It uses a *keyword* to determine how letters are shifted. For instance, if the keyword is "KEY," the first letter of the plaintext is shifted by K (10 positions), the second letter by E (4 positions), and so on. This means that the same letter in the plaintext can be encrypted to different letters in the ciphertext, depending on its position and the keyword. This complexity makes frequency analysis much less effective, as the same letter can appear multiple times in different forms.
@@ -32,6 +34,7 @@ Keyword:     K E Y K E Y K E Y K E Y
 * Convert each letter to its corresponding alphabet position (A=0, B=1, ..., Z=25), then shift the plaintext letter by the value of the keyword letter.
 
 This method varies the substitution with each letter, making patterns much harder to detect.
+
 ===== Why It’s Stronger:
 - *Frequency analysis* is less effective because the same letter in the plaintext may be encrypted as different letters in the ciphertext.
 - It increases the complexity of the cipher depending on the length and randomness of the keyword.
